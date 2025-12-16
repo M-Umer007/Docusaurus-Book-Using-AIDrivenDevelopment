@@ -1,0 +1,11 @@
+.preview {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .preview {
+    padding: 15px;
+  }
+}

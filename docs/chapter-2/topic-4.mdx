@@ -1,0 +1,65 @@
+# Topic 4: NVIDIA Isaac Platform
+
+After learning Gazebo for basic simulation, we move to **NVIDIA Isaac**, a high-fidelity platform for humanoid robot simulation, AI perception, and training. Isaac allows students to simulate photorealistic environments and prepare AI agents for **sim-to-real deployment**.
+
+---
+
+## What is NVIDIA Isaac?
+
+NVIDIA Isaac is a robotics platform that includes:
+
+- **Isaac Sim:** Photorealistic 3D simulation with physics and AI integration  
+- **Isaac SDK:** Tools and APIs for robot perception, navigation, and manipulation  
+- **Isaac ROS:** ROS 2-compatible packages for deploying AI on hardware  
+
+It enables **physical AI experiments** with humanoid robots before touching real hardware.
+
+---
+
+## Key Features
+
+- **Photorealistic Rendering:** Simulate realistic lighting, textures, and materials  
+- **Synthetic Data Generation:** Produce labeled datasets for AI training  
+- **Hardware-Accelerated AI:** GPU-powered perception, visual SLAM, and navigation  
+- **Sim-to-Real Transfer:** Test AI in simulation, then deploy to edge devices like Jetson Orin  
+
+---
+
+## Setting Up Isaac Sim
+
+1. Install NVIDIA Omniverse and Isaac Sim on a workstation with an RTX GPU  
+2. Launch Isaac Sim with a humanoid robot model  
+3. Connect ROS 2 nodes via `rosbridge` or native Isaac ROS packages  
+4. Verify sensors, controllers, and AI agents function correctly in simulation  
+
+---
+
+## Simulating Sensors and AI
+
+Isaac supports the same sensors used in real robots:
+
+- RGB-D Cameras (RealSense simulated)  
+- IMU and force-torque sensors  
+- LiDAR and depth perception  
+- Robot joint sensors and actuators  
+
+Students can run AI agents to **control humanoid robots**, perform navigation, or execute manipulation tasks in realistic environments.
+
+---
+
+## AI-Powered Perception and Navigation
+
+- **Visual SLAM (VSLAM):** Enables robots to localize and map surroundings  
+- **Navigation Stack (Nav2):** Plan paths for bipedal robots in dynamic environments  
+- **Reinforcement Learning:** Train robots to walk, balance, or manipulate objects  
+
+---
+
+## Best Practices
+
+- Always **start in simulation** before deploying AI on real robots  
+- Monitor GPU usage and performance for complex simulations  
+- Use Isaac Sim for generating **synthetic datasets** for AI models  
+- Combine Gazebo for physics testing and Isaac Sim for high-fidelity perception  
+
+By the end of this topic, students will be ready to integrate ROS 2 nodes, AI agents, and humanoid simulations in Isaac Sim, paving the way for **capstone projects and real-world deployment** in later chapters.

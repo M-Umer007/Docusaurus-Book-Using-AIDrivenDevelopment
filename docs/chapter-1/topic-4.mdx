@@ -1,0 +1,68 @@
+# Topic 4: Bridging AI Agents with ROS 2 Controllers
+
+Once we have a humanoid robot represented in ROS 2 with its nodes and URDF, the next step is to **connect AI agents**—such as decision-making models or LLMs—to the robot’s controllers. This allows the robot to act intelligently in response to sensor data, language commands, or learned policies.
+
+---
+
+## The Role of AI Agents in Physical AI
+
+AI agents serve as the robot’s **cognitive layer**:
+
+- **Perception:** Understanding the environment using cameras, LiDAR, or IMUs  
+- **Planning:** Deciding the sequence of actions to achieve a goal  
+- **Action Selection:** Sending commands to ROS 2 nodes that control motors and actuators  
+
+Example: An AI agent receives a command like *“Pick up the red box”*. It must:
+1. Identify the box using computer vision  
+2. Plan the arm trajectory  
+3. Send joint commands to execute the pick-up  
+4. Monitor feedback from sensors to adjust motion  
+
+---
+
+## Connecting AI to ROS 2
+
+There are several ways AI agents communicate with ROS 2:
+
+1. **Publishing to Topics:**  
+   AI outputs commands or control signals that a ROS 2 node subscribes to.  
+   Example: `/cmd_vel` for robot movement or `/arm_joint_positions` for manipulators.
+
+2. **Calling Services:**  
+   AI can request specific actions and wait for results.  
+   Example: Resetting a robot arm or querying the robot’s current position.
+
+3. **Sending Actions:**  
+   For long-running tasks with feedback, AI agents can send goals to **action servers**.  
+   Example: Walking to a target location while receiving continuous feedback from sensors.
+
+---
+
+## Handling Real-Time Constraints
+
+Physical AI requires **low-latency interactions** between AI reasoning and the robot’s actuators:
+
+- Use ROS 2 QoS (Quality of Service) settings to ensure reliable communication  
+- Run compute-heavy AI models on powerful workstations, while ROS 2 controllers run on edge devices (like Jetson boards)  
+- Ensure AI decisions are translated into ROS 2 commands quickly to maintain smooth motion
+
+---
+
+## Example: Integrating an LLM with ROS 2
+
+1. **Input:** Natural language command, e.g., *“Walk to the table and pick up the cup”*  
+2. **Processing:** LLM interprets command and generates a plan  
+3. **Mapping to Actions:** Plan is converted to ROS 2 actions (move base, arm joints, grasp)  
+4. **Execution:** ROS 2 nodes execute each action while monitoring sensors for success  
+5. **Feedback:** Sensor data updates the AI agent to adjust actions dynamically
+
+---
+
+## Benefits of Bridging AI with ROS 2
+
+- Turns abstract intelligence into **physical actions**  
+- Enables **voice, vision, and multi-modal control**  
+- Supports **adaptive behavior** based on real-world feedback  
+- Provides a framework for advanced robotics experiments, including autonomous humanoids  
+
+By the end of this chapter, you should understand how ROS 2 serves as the **nervous system** of the robot, while AI agents act as the **brain**, making decisions and translating them into intelligent, embodied actions.

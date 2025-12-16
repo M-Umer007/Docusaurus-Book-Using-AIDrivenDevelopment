@@ -1,0 +1,79 @@
+# Topic 3: Robot Simulation with Gazebo
+
+Before deploying AI to real humanoid robots, it is essential to **simulate both the robot and its environment**. Gazebo is a widely used simulation tool in ROS 2 that allows students to test robot models, physics, and sensors without risking hardware.
+
+---
+
+## What is Gazebo?
+
+Gazebo is a **3D robot simulation environment** that provides:
+
+- Realistic physics for movement and collisions  
+- Sensor simulation (cameras, LiDAR, IMUs)  
+- Integration with ROS 2 for publishing/subscribing sensor data  
+- Environment creation with obstacles, furniture, and dynamic objects  
+
+Simulation allows testing **algorithms, control loops, and AI agents** safely before moving to a real robot.
+
+---
+
+## Setting Up Gazebo
+
+1. Install Gazebo and ROS 2 integration packages:  
+   ```
+   sudo apt install ros-humble-gazebo-ros-pkgs ros-humble-gazebo-ros2-control
+   ```  
+2. Verify installation by launching the default empty world:  
+   ```
+   gazebo
+   ```  
+3. Confirm that ROS 2 topics can communicate with Gazebo’s simulated sensors.
+
+---
+
+## URDF and SDF in Gazebo
+
+- **URDF:** Describes the robot’s links, joints, sensors, and actuators  
+- **SDF (Simulation Description Format):** Extends URDF for more advanced simulation features like physics properties, lights, and environment models  
+
+Gazebo reads URDF/SDF files to simulate **humanoid robot movement** accurately.
+
+---
+
+## Simulating Sensors
+
+Gazebo can simulate the same sensors used on real robots:
+
+- **Cameras:** RGB and depth images  
+- **IMU:** Orientation and acceleration  
+- **LiDAR:** 3D point clouds  
+- **Force/Torque Sensors:** Detect interactions with the environment  
+
+Simulated sensor data is published to ROS 2 topics, allowing AI nodes to operate **as if on a real robot**.
+
+---
+
+## Control and Interaction
+
+- **Controllers:** Run ROS 2 nodes to send commands to the simulated robot  
+- **Gazebo Plugins:** Extend robot behavior, physics, or sensor features  
+- **Physics Simulation:** Adjust gravity, friction, and collisions for realistic testing  
+
+Example workflow:
+1. Start Gazebo with a humanoid model  
+2. Launch ROS 2 nodes controlling joints  
+3. Use AI agents to process sensor data and send movement commands  
+4. Observe behavior in the simulation and refine code
+
+---
+
+## Best Practices
+
+- Test new nodes and algorithms in **simulation first**  
+- Start with **simplified environments** before adding obstacles  
+- Log sensor data to analyze performance  
+- Use Gazebo with **NVIDIA Isaac Sim** later for higher-fidelity simulation  
+
+Gazebo provides a **safe, flexible, and realistic environment** for students to experiment with humanoid robots, bridging the gap between theory and real-world deployment.
+
+In the next topic, we will explore **NVIDIA Isaac Sim**, which allows photorealistic simulation, AI training, and advanced perception for humanoid robots.

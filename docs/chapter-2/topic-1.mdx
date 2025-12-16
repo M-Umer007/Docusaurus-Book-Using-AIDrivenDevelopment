@@ -1,0 +1,81 @@
+# Topic 1: ROS 2 Fundamentals
+
+To build and control humanoid robots, understanding **ROS 2 (Robot Operating System)** is essential. ROS 2 acts as the **nervous system** of the robot, handling communication between software components, sensors, and actuators.
+
+---
+
+## What is ROS 2?
+
+ROS 2 is a flexible framework for writing robot software. It provides:
+
+- **Nodes:** Independent processes that perform computation  
+- **Topics:** Channels for nodes to publish or subscribe to messages  
+- **Services:** Request/response interactions between nodes  
+- **Actions:** Long-running tasks with feedback and result  
+- **Parameters:** Configurable settings for nodes  
+
+ROS 2 supports multiple programming languages, with **Python (`rclpy`)** and **C++ (`rclcpp`)** being the most common.
+
+---
+
+## Core Concepts
+
+### Nodes
+
+- A **node** is a single executable that communicates with other nodes  
+- Examples: camera node, motor controller node, AI perception node  
+- Nodes can be distributed across multiple machines  
+
+### Topics
+
+- **Publish-subscribe communication**  
+- Publishers send messages to a topic  
+- Subscribers receive messages from a topic  
+- Example: `/camera/image_raw` publishes camera images  
+
+### Services
+
+- **Synchronous communication**  
+- One node requests, another responds  
+- Example: Resetting a robot’s pose or querying sensor status  
+
+### Actions
+
+- For tasks that take time and provide feedback  
+- Example: Move a robotic arm to a target while reporting progress  
+
+### Parameters
+
+- Configurable values for nodes  
+- Example: Maximum speed, PID gains, sensor thresholds  
+
+---
+
+## ROS 2 Communication Patterns
+
+| Pattern         | Use Case                                           | Communication Type |
+|-----------------|--------------------------------------------------|------------------|
+| Publisher-Subscriber | Continuous sensor data, AI commands             | Asynchronous     |
+| Service          | Requesting a specific operation                  | Synchronous      |
+| Action           | Long-running tasks with feedback                 | Asynchronous     |
+| Parameter        | Configuration of nodes                            | Synchronous/Async |
+
+---
+
+## Why ROS 2 is Critical for Physical AI
+
+- Handles **real-time sensor data**  
+- Coordinates **multi-node systems** across machines  
+- Integrates with **simulation environments** like Gazebo and Isaac Sim  
+- Bridges AI models to **physical actuators**  
+
+---
+
+## Getting Started with ROS 2
+
+1. Install ROS 2 Humble/Iron on Ubuntu 22.04 LTS  
+2. Create a workspace (`colcon` build system)  
+3. Write your first Python node using `rclpy`  
+4. Run a publisher and subscriber to verify communication  
+
+By mastering ROS 2 fundamentals, you lay the foundation for **writing nodes, simulating robots, and integrating AI agents**, which will be covered in the next topics of this chapter.

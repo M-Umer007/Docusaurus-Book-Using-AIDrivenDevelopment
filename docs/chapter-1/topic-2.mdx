@@ -1,0 +1,115 @@
+# Topic 2: Writing ROS 2 Nodes in Python with `rclpy`
+
+While ROS 2 supports multiple programming languages, **Python** is the fastest and most practical choice for building intelligent robot behavior. In this course, Python serves as the bridge between **AI models** and **physical robot control**, making `rclpy` a core skill.
+
+`rclpy` is the official Python client library for ROS 2. It allows developers to create nodes that publish data, subscribe to data, provide services, and execute actions.
+
+---
+
+## Why Python Is Used in Physical AI
+
+Python dominates the AI ecosystem and is widely used for:
+- Machine learning and deep learning
+- Computer vision
+- Natural language processing
+- Reinforcement learning
+
+Using Python inside ROS 2 allows AI systems to directly interact with sensors and actuators without rewriting logic in low-level languages.
+
+A typical Physical AI workflow looks like this:
+1. Sensors publish raw data
+2. AI models process the data
+3. Python ROS 2 nodes interpret decisions
+4. Commands are sent to the robot
+
+---
+
+## Basic Structure of a ROS 2 Python Node
+
+Every ROS 2 Python node follows the same lifecycle:
+
+1. Initialize the ROS 2 system
+2. Create a node instance
+3. Set up communication interfaces
+4. Keep the node running
+5. Shut down cleanly
+
+Conceptually:
+
+```
+Initialize ROS 2
+Create node
+Set up publishers/subscribers
+Spin (run)
+Shutdown
+```
+
+This consistent structure is what makes ROS 2 systems predictable and scalable.
+
+---
+
+## Publishers: Sending Data to the Robot
+
+A **publisher** allows a node to send messages on a topic.
+
+Common publishing use cases:
+- Sending velocity commands
+- Broadcasting AI decisions
+- Publishing sensor or state information
+
+Important characteristics:
+- Publishers are non-blocking
+- They do not care who receives the data
+- Multiple subscribers can listen to the same topic
+
+In humanoid robots, movement controllers often publish commands continuously.
+
+---
+
+## Subscribers: Receiving Sensor and State Data
+
+A **subscriber** listens to a topic and reacts when new messages arrive.
+
+Typical subscriber roles:
+- Receiving camera images
+- Reading IMU orientation data
+- Listening to voice command outputs
+- Monitoring robot health and state
+
+Subscribers use **callbacks**, meaning code executes automatically when new data is received. This event-driven design is essential for responsive physical systems.
+
+---
+
+## Timers and Control Loops
+
+Robots require actions at fixed intervals:
+- Balance control loops
+- Periodic sensor checks
+- Continuous navigation updates
+
+ROS 2 timers allow nodes to run logic at defined frequencies (for example, 10 Hz or 50 Hz), enabling stable and predictable robot behavior.
+
+---
+
+## Distributed Execution Across Machines
+
+ROS 2 is designed for **distributed systems**.
+
+Examples:
+- A perception node running on a workstation
+- A motor controller node running on a Jetson
+- Simulation running on a separate machine
+
+As long as nodes are on the same ROS 2 network, they communicate seamlessly. This makes ROS 2 ideal for sim-to-real deployment and edge AI systems.
+
+---
+
+## From AI Reasoning to Physical Action
+
+In Physical AI:
+- AI models decide *what* to do
+- ROS 2 nodes decide *how* to do it physically
+
+ROS 2 acts as the execution layer that turns intelligence into movement.
+
+In the next topic, we will explore **URDF (Unified Robot Description Format)**, which defines the physical structure of humanoid robots so ROS 2 can understand joints, links, and movement constraints.

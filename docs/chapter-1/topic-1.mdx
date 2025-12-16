@@ -1,0 +1,124 @@
+# Topic 1: Understanding ROS 2 as a Robotic Nervous System
+
+At its core, ROS 2 provides a structured way for different parts of a robot to **communicate, coordinate, and operate together**. Instead of writing one large program that controls everything, ROS 2 encourages a **distributed architecture** where each responsibility is handled independently.
+
+Think of a humanoid robot like a human body:
+
+- The **eyes** continuously send visual information  
+- The **inner ear** reports balance and motion  
+- The **brain** makes decisions  
+- The **muscles** execute movements  
+
+ROS 2 enables this same pattern in software.
+
+---
+
+## Nodes: The Functional Units
+
+A **node** is the smallest executable unit in ROS 2.  
+Each node is responsible for **one specific task**.
+
+Examples of nodes in a humanoid robot:
+- A camera node that publishes images
+- A LiDAR node that publishes distance scans
+- A balance controller node
+- A walking planner node
+- A speech recognition node
+
+Key idea:
+> One node = one responsibility
+
+This design makes systems easier to:
+- Debug  
+- Replace  
+- Scale  
+- Run across multiple machines  
+
+A perception-heavy node might run on a powerful workstation, while motor control nodes run on an edge device like a Jetson.
+
+---
+
+## Topics: Continuous Data Flow
+
+Nodes communicate using **topics**.
+
+A **topic** is a named data channel where:
+- One or more nodes **publish** data
+- One or more nodes **subscribe** to data
+
+Examples:
+- `/camera/image_raw`
+- `/imu/data`
+- `/cmd_vel` (velocity commands)
+
+Topics are ideal for **continuous streams** of data such as:
+- Camera images
+- Sensor readings
+- Robot velocity updates
+
+Important characteristics:
+- Asynchronous (publisher and subscriber don’t block each other)
+- Many-to-many communication
+- Loosely coupled (nodes don’t need to know about each other directly)
+
+This loose coupling is critical for Physical AI, where components may fail, restart, or move between machines.
+
+---
+
+## Services: Request–Response Communication
+
+Not all interactions are continuous. Sometimes a node needs a **specific answer**.
+
+This is where **services** are used.
+
+A **service**:
+- A node sends a request
+- Another node processes it
+- A response is returned
+
+Examples:
+- Reset robot position
+- Start or stop walking
+- Query battery status
+
+Services are best for:
+- Configuration
+- One-time commands
+- State queries
+
+Unlike topics, services are **synchronous**, meaning the caller waits for a response.
+
+---
+
+## Actions: Long-Running Tasks
+
+Some robot tasks take time and need feedback.  
+For this, ROS 2 provides **actions**.
+
+Examples:
+- Walk to a target location
+- Pick up an object
+- Climb stairs
+
+Actions support:
+- Goal sending
+- Continuous feedback
+- Result reporting
+- Cancellation
+
+This makes actions ideal for humanoid behaviors that involve planning and execution over time.
+
+---
+
+## Why This Architecture Works
+
+By separating nodes, topics, services, and actions, ROS 2 creates a system that is:
+
+- Modular  
+- Fault-tolerant  
+- Real-time capable  
+- Ready for simulation and real-world deployment  
+
+This architecture allows AI systems—such as vision models or language planners—to plug directly into physical robots without rewriting everything from scratch.
+
+In the next topic, we will move from concepts to practice by building **ROS 2 nodes in Python using `rclpy`** and seeing how AI agents can control humanoid robots through this nervous system.

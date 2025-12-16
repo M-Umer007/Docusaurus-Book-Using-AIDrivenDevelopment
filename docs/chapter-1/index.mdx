@@ -1,0 +1,64 @@
+# Chapter 1: The Robotic Nervous System (ROS 2)
+
+## Introduction
+
+To build intelligent robots that can operate in the real world, we need more than powerful AI models—we need a reliable **nervous system** that connects perception, decision-making, and physical action. In modern robotics, this nervous system is **ROS 2 (Robot Operating System 2)**.
+
+ROS 2 is not an operating system in the traditional sense. Instead, it is a **middleware framework** that allows different parts of a robot—such as sensors, controllers, planners, and AI agents—to communicate with each other in a structured, scalable, and real-time–safe manner.
+
+In this chapter, we treat a humanoid robot as a living system:
+
+- **Sensors** act like sensory organs (eyes, ears, balance).
+- **Controllers and planners** act like the brain and spinal cord.
+- **Motors and joints** act like muscles.
+- **ROS 2** acts as the communication layer that keeps everything synchronized.
+
+Without ROS 2, robotic systems quickly become tangled collections of scripts and hardware-specific code. With ROS 2, we gain:
+- Modular design
+- Hardware abstraction
+- Distributed execution across multiple machines
+- A clean path from simulation to real robots
+
+This chapter focuses on understanding how ROS 2 enables **Physical AI**—AI that exists beyond screens and interacts with the physical laws of the world.
+
+---
+
+## Why ROS 2 Matters for Physical AI
+
+Traditional AI systems operate in purely digital environments. Physical AI systems must deal with:
+
+- Real-time constraints  
+- Noisy sensor data  
+- Hardware failures  
+- Multiple computing devices (PC + edge device like Jetson)  
+
+ROS 2 was designed specifically to handle these challenges.
+
+Key reasons ROS 2 is essential for humanoid robotics:
+
+- **Real-time communication** using DDS (Data Distribution Service)
+- **Scalability** from simulation to real hardware
+- **Multi-language support**, especially Python and C++
+- **Industry adoption** in autonomous vehicles, drones, and humanoids
+
+In this course, ROS 2 serves as the foundation that connects:
+- Gazebo and Isaac simulations
+- AI perception pipelines
+- Language-driven planning systems
+- Real-world robot hardware
+
+---
+
+## Learning Objectives of This Chapter
+
+By the end of this chapter, you will be able to:
+
+- Explain the role of ROS 2 in humanoid robot architectures  
+- Understand the core communication concepts of ROS 2  
+- Write basic ROS 2 programs using Python (`rclpy`)  
+- Describe humanoid robots using URDF  
+- Bridge AI agents with physical robot controllers  
+
+This chapter lays the groundwork for everything that follows. Every perception model, planning algorithm, and language-based instruction later in the book will ultimately pass through the ROS 2 nervous system.
+
+In the next sections, we will break down ROS 2 into its core building blocks—**nodes, topics, services, and actions**—and see how they work together to bring humanoid robots to life.

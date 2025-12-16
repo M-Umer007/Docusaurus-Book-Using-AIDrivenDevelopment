@@ -1,0 +1,82 @@
+# Topic 3: Describing Humanoid Robots with URDF
+
+To control a humanoid robot effectively, ROS 2 needs a precise understanding of its **physical structure**. This is where **URDF (Unified Robot Description Format)** comes in. URDF is an XML-based format that defines the **links**, **joints**, and physical properties of a robot, allowing ROS 2 to simulate and control it accurately.
+
+---
+
+## What URDF Represents
+
+A humanoid robot is made up of multiple parts:
+
+- **Links:** Rigid bodies, such as torso, head, arms, and legs  
+- **Joints:** Connections between links, defining how they move (revolute, prismatic, fixed)  
+- **Sensors:** Cameras, IMUs, LiDARs attached to specific links  
+- **Actuators:** Motors controlling joints  
+- **Origin & Pose:** Position and orientation of each link relative to its parent
+
+URDF provides ROS 2 with a **map of the robot’s kinematics and geometry**, which is essential for simulation, motion planning, and AI control.
+
+---
+
+## Basic URDF Structure
+
+A URDF file typically includes:
+
+```xml
+<robot name="humanoid">
+  <link name="torso"/>
+  <link name="head"/>
+  <joint name="neck" type="revolute">
+    <parent link="torso"/>
+    <child link="head"/>
+    <origin xyz="0 0 0.3" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10" velocity="1"/>
+  </joint>
+  <!-- Additional links and joints -->
+</robot>
+```
+
+Key points:
+- `<robot>` is the root element  
+- `<link>` defines a rigid body  
+- `<joint>` connects two links and defines the type of motion  
+- `<origin>` specifies the position and orientation of the child link  
+- `<axis>` defines the rotation axis (for revolute joints)  
+- `<limit>` sets physical constraints for the joint
+
+---
+
+## URDF for Humanoid Robots
+
+Humanoids have many degrees of freedom (DoF). Examples:
+
+- Torso: fixed or small tilt joints  
+- Head: pitch and yaw  
+- Arms: shoulder, elbow, wrist  
+- Legs: hip, knee, ankle  
+
+URDF allows ROS 2 to **understand the hierarchy** of links and joints so that movement commands can propagate correctly through the robot.
+
+---
+
+## Integrating Sensors and Actuators
+
+Sensors are added as links with special tags, such as `<camera>` or `<imu>`.  
+Actuators are usually attached to joints, defining the **motion limits** and **control parameters**.
+
+This allows AI models or ROS 2 controllers to:
+- Read sensor data  
+- Compute kinematics  
+- Send commands to actuators  
+
+---
+
+## Why URDF Is Critical
+
+- Enables **simulation** in Gazebo or Isaac Sim  
+- Provides the robot’s **kinematic and dynamic model**  
+- Bridges the gap between software (ROS 2) and hardware (motors, sensors)  
+- Essential for **path planning, collision avoidance, and humanoid motion**
+
+In the next topic, we will explore **how AI agents and decision-making systems connect to ROS 2 controllers**, turning perception and planning into actual robot actions.

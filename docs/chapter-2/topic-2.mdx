@@ -1,0 +1,149 @@
+# Chapter 2: Getting Started with Physical AI & Humanoid Robotics
+
+Before diving into advanced simulations and humanoid control, it’s crucial to **set up your development environment**, understand the hardware requirements, and familiarize yourself with the tools used in this course. This chapter will guide you step by step.
+
+---
+
+## Introduction
+
+Physical AI moves AI systems from the digital realm into the **physical world**, requiring a combination of:
+
+- High-performance hardware for simulation  
+- Edge devices for real-world deployment  
+- Software frameworks for robot control  
+- Sensors and actuators for interaction with the environment  
+
+The goal is to bridge the gap between **AI reasoning** and **robotic action**, preparing you for building and simulating humanoid robots.
+
+---
+
+## Hardware Overview
+
+### 1. Digital Twin Workstation (Simulation PC)
+
+A powerful workstation is required to run NVIDIA Isaac Sim, Gazebo, and AI models efficiently.
+
+**Recommended specs:**
+- GPU: NVIDIA RTX 4070 Ti or higher (RTX 3090/4090 ideal)  
+- CPU: Intel Core i7 (13th Gen+) or AMD Ryzen 9  
+- RAM: 64 GB DDR5 (32 GB minimum)  
+- OS: Ubuntu 22.04 LTS  
+- Notes: NVIDIA Isaac Sim requires RTX-enabled GPUs; dual-boot with Linux is recommended for ROS 2  
+
+### 2. Physical AI Edge Kit
+
+For deploying AI on physical robots or desk-top test rigs:
+
+- Brain: NVIDIA Jetson Orin Nano (8GB) or Orin NX (16GB)  
+- Eyes: Intel RealSense D435i or D455 (RGB + Depth + IMU)  
+- Ears: ReSpeaker USB microphone array  
+- Misc: SD card, jumper wires, power supply  
+
+### 3. Robot Lab Options
+
+**Option A: Proxy Approach (Budget-Friendly)**  
+- Robot: Unitree Go2 Edu (~$1,800 - $3,000)  
+- Pros: Durable, ROS 2 compatible, affordable  
+- Cons: Not humanoid (quadruped or arm as proxy)  
+
+**Option B: Miniature Humanoid Approach**  
+- Small humanoids like Hiwonder TonyPi Pro (~$600)  
+- Can demonstrate kinematics and basic movement  
+- AI control limited by hardware  
+
+**Option C: Premium Lab (Full Humanoid)**  
+- Robot: Unitree G1 Humanoid (~$16k+)  
+- Full ROS 2 and NVIDIA Isaac ROS support  
+- Supports real sim-to-real deployment  
+
+---
+
+## Software Setup
+
+### ROS 2 (Robot Operating System)
+
+- ROS 2 Humble/Iron recommended  
+- Install `rclpy` for Python node development  
+- Supports nodes, topics, services, and actions  
+
+### Simulation Environments
+
+- **Gazebo:** Physics simulation and sensor testing  
+- **Unity:** Visualization of robots and environments  
+- **NVIDIA Isaac Sim:** High-fidelity humanoid simulation and training  
+
+### Development Tools
+
+- Python 3.10+ for AI and ROS 2 integration  
+- VS Code or PyCharm for code editing  
+- Git and GitHub for version control  
+
+---
+
+## First Steps
+
+1. Install Ubuntu 22.04 LTS on your workstation  
+2. Install ROS 2 Humble/Iron and verify nodes can run  
+3. Install Gazebo, Unity, and NVIDIA Isaac Sim  
+4. Connect your Edge AI kit and verify sensors  
+5. Run a simple publisher-subscriber node to ensure ROS 2 communication works  
+
+---
+
+## Best Practices
+
+- **Start with simulation:** Always test in Gazebo or Isaac Sim before deploying to real robots  
+- **Use version control:** Keep track of code changes using Git  
+- **Monitor hardware:** High VRAM and CPU usage is common; avoid running heavy simulations alongside other software  
+- **Document experiments:** Note your configurations, observations, and errors for future reference  
+
+---
+
+## Topic 1: ROS 2 Fundamentals
+
+To build and control humanoid robots, understanding **ROS 2 (Robot Operating System)** is essential. ROS 2 acts as the **nervous system** of the robot, handling communication between software components, sensors, and actuators.
+
+### What is ROS 2?
+
+ROS 2 is a flexible framework for writing robot software. It provides:
+
+- **Nodes:** Independent processes that perform computation  
+- **Topics:** Channels for nodes to publish or subscribe to messages  
+- **Services:** Request/response interactions between nodes  
+- **Actions:** Long-running tasks with feedback and result  
+- **Parameters:** Configurable settings for nodes  
+
+ROS 2 supports multiple programming languages, with **Python (`rclpy`)** and **C++ (`rclcpp`)** being the most common.
+
+### Core Concepts
+
+**Nodes:** A single executable that communicates with other nodes  
+**Topics:** Publish-subscribe communication for continuous data  
+**Services:** Synchronous request-response between nodes  
+**Actions:** Long-running tasks with feedback  
+**Parameters:** Configurable values for nodes
+
+### ROS 2 Communication Patterns
+
+| Pattern         | Use Case                                           | Communication Type |
+|-----------------|--------------------------------------------------|------------------|
+| Publisher-Subscriber | Continuous sensor data, AI commands             | Asynchronous     |
+| Service          | Requesting a specific operation                  | Synchronous      |
+| Action           | Long-running tasks with feedback                 | Asynchronous     |
+| Parameter        | Configuration of nodes                            | Synchronous/Async |
+
+### Why ROS 2 is Critical for Physical AI
+
+- Handles **real-time sensor data**  
+- Coordinates **multi-node systems** across machines  
+- Integrates with **simulation environments** like Gazebo and Isaac Sim  
+- Bridges AI models to **physical actuators**  
+
+### Getting Started with ROS 2
+
+1. Install ROS 2 Humble/Iron on Ubuntu 22.04 LTS  
+2. Create a workspace (`colcon` build system)  
+3. Write your first Python node using `rclpy`  
+4. Run a publisher and subscriber to verify communication  
+
+By mastering ROS 2 fundamentals, you lay the foundation for **writing nodes, simulating robots, and integrating AI agents**, which will be covered in the next topics of this chapter.

@@ -1,0 +1,103 @@
+# Chapter 4: Vision-Language-Action (VLA)
+
+In this chapter, we explore the **convergence of large language models (LLMs) and robotics**, enabling humanoid robots to understand human commands, plan actions, and interact with their environment. This is the final step toward building autonomous, AI-powered humanoids.
+
+---
+
+## Topic 1: Voice-to-Action
+
+The first step in VLA is enabling robots to understand **voice commands** and translate them into executable actions.
+
+### OpenAI Whisper for Speech Recognition
+
+- Converts spoken instructions into text  
+- Supports multiple languages and noisy environments  
+- Integration with ROS 2 nodes for action planning  
+
+**Workflow:**
+1. Capture audio using a USB microphone (e.g., ReSpeaker)  
+2. Transcribe audio with Whisper  
+3. Send text output to the AI planning module  
+
+### Mapping Commands to Actions
+
+- Parse natural language instructions (e.g., "Pick up the red cup")  
+- Identify the **task type** (navigation, manipulation, or perception)  
+- Convert task into a sequence of ROS 2 actions  
+
+---
+
+## Topic 2: Cognitive Planning
+
+After transcription, the robot must **plan how to execute the command**.
+
+### Translating Text into Actions
+
+- Use LLMs (like GPT models) to convert text into **structured ROS 2 commands**  
+- Example:  
+  ```
+  command: pick_up
+  target: red cup
+  location: table
+  ```
+- Actions are sent to corresponding **ROS 2 nodes** controlling motors and sensors  
+
+### Task Sequencing
+
+- Break complex commands into smaller steps  
+- Maintain **state awareness**: track which sub-tasks are complete  
+- Handle contingencies, e.g., obstacle in path or object not detected  
+
+### Integration with ROS 2
+
+- ROS 2 nodes receive high-level plans and execute them in simulation or on real robots  
+- Enables **dynamic decision-making** while performing tasks  
+
+---
+
+## Topic 3: Multi-Modal Integration
+
+Robots interact with the world through multiple senses. VLA combines:
+
+- **Vision:** Cameras and LiDAR detect objects and environment  
+- **Language:** LLMs understand instructions  
+- **Action:** ROS 2 nodes execute movement, grasping, and navigation  
+
+**Example Workflow:**
+
+1. Voice command: "Bring me the blue book"  
+2. LLM parses command → structured actions  
+3. Vision module locates the blue book  
+4. Motion planning executes navigation and manipulation  
+5. Feedback confirms task completion  
+
+---
+
+## Topic 4: Capstone Project – Autonomous Humanoid
+
+For the final project, students integrate all VLA components:
+
+- Receive a natural language command  
+- Plan actions with LLMs  
+- Navigate using ROS 2 and Isaac Sim or Gazebo  
+- Detect and manipulate objects with vision and AI perception  
+- Execute safely on a physical robot using an Edge AI kit  
+
+**Learning Outcomes:**
+
+- Complete pipeline from **voice input to physical action**  
+- Master multi-modal AI integration  
+- Understand sim-to-real challenges and deploy safely  
+- Build fully autonomous humanoid behaviors  
+
+---
+
+### Summary
+
+Chapter 4 ties together everything from previous chapters:
+
+- ROS 2 fundamentals (Chapter 1)  
+- Simulation and Isaac AI (Chapters 2 & 3)  
+- Multi-modal AI control for real-world tasks  
+
+By the end, students can create humanoid robots that **understand commands, plan intelligently, and act autonomously**, completing the Physical AI learning journey.
