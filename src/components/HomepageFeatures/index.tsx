@@ -11,36 +11,37 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'Physical AI & Embodied Intelligence',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Learn how AI systems move beyond screens into the real world by
+        controlling sensors, actuators, and humanoid robots.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Simulation to Real Deployment',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Train, test, and validate robots using ROS 2, Gazebo, and NVIDIA Isaac
+        before deploying safely to physical hardware.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Vision-Language-Action',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
+        description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Build autonomous humanoids that understand voice commands, reason using
+        LLMs, and act intelligently in the physical world.
       </>
     ),
   },
 ];
+
 
 function Feature({title, Svg, description}: FeatureItem) {
   return (

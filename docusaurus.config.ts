@@ -67,7 +67,7 @@ const config: Config = {
         {to: '/about', label: 'About', position: 'left'},
         {to: '/contact', label: 'Contact', position: 'left'},
         {
-          href: 'https://github.com/your-org/ai-native-book',
+          href: 'https://github.com/M-Umer007/Docusaurus-Book-Using-AIDrivenDevelopment',
           label: 'GitHub',
           position: 'right',
         },
@@ -103,7 +103,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/your-org/ai-native-book',
+              href: 'https://github.com/M-Umer007/Docusaurus-Book-Using-AIDrivenDevelopment',
             },
           ],
         },

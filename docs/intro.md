@@ -2,46 +2,47 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Physical AI & Humanoid Robotics
 
-Let's discover **Docusaurus in less than 5 minutes**.
+## About This Book
 
-## Getting Started
+This textbook introduces **Physical AI** — AI systems that operate in the real, physical world through robots. Unlike traditional AI that lives purely in software, Physical AI connects intelligence with sensors, actuators, and physical laws.
 
-Get started by **creating a new site**.
+This book focuses on **humanoid robotics**, where AI systems are embodied in human-like forms capable of perception, reasoning, and action.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## Who This Book Is For
 
-### What you'll need
+This book is designed for:
+- Students with basic programming knowledge (Python preferred)
+- Learners familiar with AI or software development
+- Anyone interested in robotics, embodied intelligence, and AI agents
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+No prior robotics experience is required.
 
-## Generate a new site
+## What You Will Learn
 
-Generate a new Docusaurus site using the **classic template**.
+By the end of this book, you will be able to:
+- Understand principles of Physical AI and embodied intelligence
+- Use **ROS 2** to control robots
+- Simulate robots using **Gazebo and NVIDIA Isaac Sim**
+- Build AI-powered perception and navigation systems
+- Integrate **Vision, Language, and Action (VLA)**
+- Create an autonomous humanoid robot in simulation
 
-The classic template will automatically be added to your project after you run the command:
+## How This Book Is Structured
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+- **Chapter 1:** Foundations of Physical AI and ROS 2  
+- **Chapter 2:** Simulation and Digital Twins  
+- **Chapter 3:** AI-Robot Brain using NVIDIA Isaac  
+- **Chapter 4:** Vision-Language-Action and Autonomous Humanoids  
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+Each chapter builds on the previous one and includes conceptual explanations and practical workflows.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+## Learning Philosophy
 
-## Start your site
+This is an **AI-native textbook**:
+- Designed to be read alongside AI assistants
+- Optimized for experimentation and exploration
+- Focused on real-world deployment, not just theory
 
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Let’s begin the journey from **digital intelligence to physical action**.
